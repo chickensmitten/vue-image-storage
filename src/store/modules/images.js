@@ -16,7 +16,7 @@ const actions = {
     // rootState.auth.token old way, below is new way
     const { token } = rootState.auth;
     // api.fetchImages(token); this code is not good cause it does not wait for the API request to get back
-    const response = await api.fetchImages(token);
+    const response = api.fetchImages(token);
     console.log(response);
   }
 };
