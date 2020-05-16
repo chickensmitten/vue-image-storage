@@ -1,5 +1,6 @@
 import api from '../../api/imgur' //using this to get the api calls from imgur.js
 import qs from 'qs';
+import { router } from '../../main'
 
 const state = {
   token: window.localStorage.getItem('imgur_token')
@@ -29,6 +30,8 @@ const actions = {
     const query = qs.parse(hash.replace('#', ''));
     commit('setToken', query.access_token);
     window.localStorage.setItem('imgur_token', query.access_token);
+    // navigate the user to the other route without full page reload
+    router.push('/');
   }
 };
 
