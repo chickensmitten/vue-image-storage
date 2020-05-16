@@ -2,7 +2,8 @@ import api from '../../api/imgur' //using this to get the api calls from imgur.j
 import qs from 'qs';
 
 const state = {
-  token: null
+  token: window.localStorage.getItem('imgur_token')
+  // go to local storage, use get item method from javascript to get token called imgur_token
 };
 
 const getters = {
@@ -24,7 +25,8 @@ const actions = {
   finalizeLogin: ({ commit }, hash) => {
     // hash is different compared with params
     const query = qs.parse(hash.replace('#', ''));
-    commit('setToken', query.access_token); 
+    commit('setToken', query.access_token);
+    window.localStorage.setItem('imgur_token', query.access_token);
   }
 };
 
