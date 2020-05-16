@@ -8,7 +8,7 @@
       <div v-if="isLoggedIn" class="horizontal">
         <a class="item">Galleries</a>
         <a class="item">Upload</a>
-        <a class="item">Logout</a>
+        <a class="item" @click="logout">Logout</a>
       </div>
       <a v-else href="#" class="ui item" @click="login">
         Login
@@ -29,7 +29,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'login'
+      'login',
+      'logout'
     ]),
     // ... is so that we can add more methods inside methods other than having them only in actions
   }
