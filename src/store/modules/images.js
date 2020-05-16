@@ -11,13 +11,13 @@ const getters = {
 const actions = {
   // rootState is a reference to all the state that is held inside the vuex instance. 
   // Reach into other modules and access state/data in them
-  fetchImages({ rootState }) {
+  async fetchImages({ rootState, commit }) {
     // rootState then file name then state object
     // rootState.auth.token old way, below is new way
     const { token } = rootState.auth;
     // api.fetchImages(token); this code is not good cause it does not wait for the API request to get back
-    const response = api.fetchImages(token);
-    console.log(response);
+    const response = await api.fetchImages(token);
+    commit('setImages', response.data.data);
   }
 };
 
