@@ -18,6 +18,7 @@ export default {
   }
 };
 
+// can get this from window.location
 // http://localhost:8080/oauth2/callback#
 // access_token=<token>
 // &
