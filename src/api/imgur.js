@@ -11,7 +11,9 @@ export default {
       response_type: 'token'
     };
     // using template string below
-    // by setting this location below, users will go to the url.
-    window.location = `${ROOT_URL}/oauth2/authorize?${qs.stringify(querystring)}`;
+    // by setting this location below, users will go to the url. Forcing the user to login with imgur oauth
+    window.location = `${ROOT_URL}/oauth2/authorize?${qs.stringify(
+      querystring
+    )}`;
   }
 };
