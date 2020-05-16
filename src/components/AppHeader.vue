@@ -3,10 +3,12 @@
     <a href="/" class="active item">
       Image Storage
     </a>
-
     <div 
       class='right menu'>
-      <a href="#" class="ui item" @click="login">
+      <div v-if="isLoggedIn" class="">
+        Galleries Button
+      </div>
+      <a v-else href="#" class="ui item" @click="login">
         Login
       </a>
     </div>
@@ -14,10 +16,15 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'AppHeader',
+  computed: {
+    ...mapGetters([
+      'isLoggedIn'
+    ])
+  },
   methods: {
     ...mapActions([
       'login'
