@@ -17,3 +17,16 @@ export default {
     )}`;
   }
 };
+
+// http://localhost:8080/oauth2/callback#
+// access_token=<token>
+// &
+// expires_in=315360000
+// &
+// token_type=bearer
+// &
+// refresh_token=<token>
+// &
+// account_username=chickensmitten
+// &
+// account_id=130628119
