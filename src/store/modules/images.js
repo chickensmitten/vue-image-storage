@@ -20,6 +20,10 @@ const actions = {
     commit('setImages', response.data.data);
   },
   async uploadImages ({ commit }, images) {
+    // normally we would use const images = event.target.files;
+    // however $event.target.files in uploadImages vue already passed the images 
+    // console.log will show you that the image files are in event.target.files
+    
     console.log(images);
     commit();
   }
