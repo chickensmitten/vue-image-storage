@@ -18,6 +18,10 @@ const actions = {
     // api.fetchImages(token); this code is not good cause it does not wait for the API request to get back
     const response = await api.fetchImages(token);
     commit('setImages', response.data.data);
+  },
+  async uploadImages ({ commit }, images) {
+    console.log(images);
+    commit();
   }
 };
 
