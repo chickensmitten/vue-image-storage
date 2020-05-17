@@ -27,7 +27,7 @@ export default {
   uploadImages(images, token) {
     // we have to map through the array of images
     //  because imgur only allows upload files one at a time.
-    Array.from(images).map(image => {
+    const promises = Array.from(images).map(image => {
       const formData = new FormData();
       //  imgur requires key of image in binary format
       formData.append('image', image);
@@ -38,6 +38,9 @@ export default {
         }
       })
     });
+
+    return Promise.all(promises);
+    // Promise is a built in function that takes all promises and returns them as one
   }
 };
 
