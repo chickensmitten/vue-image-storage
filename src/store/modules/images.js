@@ -19,11 +19,18 @@ const actions = {
     const response = await api.fetchImages(token);
     commit('setImages', response.data.data);
   },
-  async uploadImages ({ commit }, images) {
+  async uploadImages ({ rootState }, images) {
     // normally we would use const images = event.target.files;
     // however $event.target.files in uploadImages vue already passed the images 
     // console.log will show you that the image files are in event.target.files
     
+    // Get the access token
+    const { token } = rootState.auth;
+
+    // Call our API module to do the upload
+    await api.upload(images, token);
+
+    // Redirect our user to ImageList component
     console.log(images);
     commit();
   }

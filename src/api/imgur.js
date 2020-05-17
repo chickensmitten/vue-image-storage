@@ -23,6 +23,21 @@ export default {
         Authorization: `Bearer ${token}`
       }
     });
+  },
+  uploadImages(images, token) {
+    // we have to map through the array of images
+    //  because imgur only allows upload files one at a time.
+    Array.from(images).map(image => {
+      const formData = new FormData();
+      //  imgur requires key of image in binary format
+      formData.append('image', image);
+
+      return axios.post(`${ROOT_URL}/3/image`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+    });
   }
 };
 
